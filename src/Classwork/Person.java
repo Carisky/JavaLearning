@@ -1,4 +1,4 @@
-package Homework4;
+package src.Classwork;
 import java.util.Scanner;
 
 public class Person {

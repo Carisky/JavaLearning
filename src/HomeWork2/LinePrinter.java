@@ -1,4 +1,4 @@
-package HomeWork2;
+package src.HomeWork2;
 
 public class LinePrinter {
     public static void main(String[] args) {

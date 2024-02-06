@@ -1,4 +1,4 @@
-package ExampleTasks;
+package src.ExampleTasks;
 import java.util.Scanner;
 public class CircleSquare {
     

@@ -1,4 +1,4 @@
-package Homework4;
+package src.Homework4;
 
 import java.util.ArrayList;
 import java.util.Scanner;
