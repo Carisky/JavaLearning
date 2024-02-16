@@ -60,26 +60,4 @@ class LibraryCatalog {
             return null;
         }
     }
-
-
-    public void handleSearchOption() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Do you want to search again? (1: Yes, 2: Exit)");
-        try {
-            int choice = scanner.nextInt();
-            if (choice == 1) {
-                // User wants to search again
-                // You can add more logic here if needed
-            } else if (choice == 2) {
-                // User wants to exit
-                System.exit(0);
-            } else {
-                System.out.println("Invalid choice. Exiting.");
-                System.exit(0);
-            }
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid input. Exiting.");
-            System.exit(0);
-        }
-    }
 }
