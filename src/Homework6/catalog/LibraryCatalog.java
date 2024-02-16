@@ -1,14 +1,18 @@
-package src.Homework6.catalog;
-
-import src.Homework6.Publication;
+package src.Homework6;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Scanner;
 
+class PublicationNotFoundException extends Exception {
+    public PublicationNotFoundException(String message) {
+        super(message);
+    }
+}
 
-
-public class LibraryCatalog {
-    private final List<Publication> catalog;
+class LibraryCatalog {
+    private List<Publication> catalog;
 
     public LibraryCatalog() {
         this.catalog = new ArrayList<>();
@@ -28,7 +32,7 @@ public class LibraryCatalog {
     public Publication searchByTitle(String title) {
         try {
             for (Publication publication : catalog) {
-                if (publication.getTitle().equals(title)) {
+                if (publication.title.equals(title)) {
                     return publication;
                 }
             }
@@ -43,8 +47,7 @@ public class LibraryCatalog {
         List<Publication> result = new ArrayList<>();
         try {
             for (Publication publication : catalog) {
-                String publicationAuthor = publication.getAuthor();
-                if (publicationAuthor != null && publicationAuthor.equals(author)) {
+                if (publication instanceof Book && ((Book) publication).getAuthor().equals(author)) {
                     result.add(publication);
                 }
             }
@@ -54,8 +57,7 @@ public class LibraryCatalog {
             return result;
         } catch (PublicationNotFoundException e) {
             System.out.println(e.getMessage());
-            return new ArrayList<>(); // Return an empty list in case of exception
+            return null;
         }
     }
-
 }
