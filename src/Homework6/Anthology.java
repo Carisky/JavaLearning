@@ -3,7 +3,7 @@ package src.Homework6;
 import java.util.List;
 
 class Anthology extends Publication {
-    private List<Book> works;
+    private final List<Book> works;
 
     public Anthology(String title, List<Book> works) {
         super(title);
@@ -18,5 +18,10 @@ class Anthology extends Publication {
             System.out.println("- " + work.title + " by " + work.getAuthor());
         }
         System.out.println("-----------------------------");
+    }
+
+    @Override
+    public String getAuthor() {
+        return null;
     }
 }

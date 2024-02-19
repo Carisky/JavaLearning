@@ -3,8 +3,8 @@ package src.Homework6;
 import java.util.List;
 
 public class Newspaper extends Publication {
-    private String issueDate;
-    private List<String> headlines;
+    private final String issueDate;
+    private final List<String> headlines;
 
     public Newspaper(String title, String issueDate, List<String> headlines) {
         super(title);
@@ -21,5 +21,10 @@ public class Newspaper extends Publication {
             System.out.println("- " + headline);
         }
         System.out.println("-----------------------------");
+    }
+
+    @Override
+    public String getAuthor() {
+        return null;
     }
 }

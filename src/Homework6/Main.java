@@ -1,39 +1,28 @@
 package src.Homework6;
 
+import src.Homework6.catalog.LibraryCatalog;
+
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+
         LibraryCatalog libraryCatalog = new LibraryCatalog();
+        PublicationFactory publicationFactory = new PublicationFactory();
 
-        Book book1 = new Book("The Catcher in the Rye", "J.D. Salinger", "Fiction", 224);
-        Newspaper newspaper1 = new Newspaper("The Times", "2024-02-12", List.of("Breaking News", "Sports Highlights"));
-        Book book2 = new Book("To Kill a Mockingbird", "Harper Lee", "Fiction", 281);
-        Anthology anthology1 = new Anthology("Great Short Stories", List.of(book1, book2));
-
-        libraryCatalog.addPublication(book1);
-        libraryCatalog.addPublication(newspaper1);
-        libraryCatalog.addPublication(book2);
-        libraryCatalog.addPublication(anthology1);
-
+        for (int i = 0; i < 7; i++) {
+            libraryCatalog.addPublication(publicationFactory.createRandomPublication());
+        }
         libraryCatalog.displayCatalog();
 
         System.out.println("Search by Title:");
         Publication foundPublication = libraryCatalog.searchByTitle("The Times");
-        if (foundPublication != null) {
-            foundPublication.displayInfo();
-        } else {
-            System.out.println("Publication not found.");
-        }
+        foundPublication.displayInfo();
 
         System.out.println("Search by Author:");
-        List<Publication> publicationsByAuthor = libraryCatalog.searchByAuthor("J.D. Salinger");
-        if (!publicationsByAuthor.isEmpty()) {
+        List<Publication> publicationsByAuthor = libraryCatalog.searchByAuthor("J.. Salinger");
             for (Publication publication : publicationsByAuthor) {
                 publication.displayInfo();
             }
-        } else {
-            System.out.println("No publications by this author.");
-        }
     }
 }

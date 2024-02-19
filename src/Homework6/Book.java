@@ -1,19 +1,13 @@
 package src.Homework6;
 
 public class Book extends Publication {
-    private String author;
-    private String genre;
-    private int pageCount;
+    private final String genre;
+    private final int pageCount;
 
     public Book(String title, String author, String genre, int pageCount) {
-        super(title);
-        this.author = author;
+        super(title, author);
         this.genre = genre;
         this.pageCount = pageCount;
-    }
-
-    public String getAuthor(){
-        return this.author;
     }
 
     @Override
